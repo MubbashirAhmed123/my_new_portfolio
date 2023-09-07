@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+
+progress{
+    height: 10px;
+    width: 200px;
+    border-radius: 10px;
+}
+
+progress::-webkit-progress-value{
+    background-color: rgb(49, 235, 49);
+    
+}
+
+.img{
+    animation: animate 2.5s ease-in-out infinite alternate;
+}
+
+#home{
+    background-image: url(./images/backgroundimg2.jpg);
+    
+}
+
+@keyframes animate {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(10px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
