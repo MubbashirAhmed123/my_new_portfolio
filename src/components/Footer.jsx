@@ -9,7 +9,7 @@ import github from '../images/github.png'
 function Footer() {
 
   const [form,setForm]=useState({
-    name:'',
+    from_name:'',
     email:'',
     message:''
   })
@@ -23,10 +23,10 @@ function Footer() {
     emailjs.send(process.env.REACT_APP_EMAIL_SERVICE_ID,process.env.REACT_APP_EMAIL_TEMPLATE_ID,form,process.env.REACT_APP_EMAIL_PUBLIC_KEY)
     .then((res)=>{
       toast.success('Email Sent Successfully!')
-      setForm({name:'',email:'',message:''})
+      setForm({from_name:'',email:'',message:''})
     }).catch((err)=>{
       toast.error('Some Error Occurred!')
-      setForm({name:'',email:'',message:''})
+      setForm({from_name:'',email:'',message:''})
 
     })
     console.log(form)
@@ -53,7 +53,7 @@ function Footer() {
           </div>
           <div>
             <form className='p-5 text-white' onSubmit={sendEmail}>
-              <input type="text" name="from_name" id="name" value={form.name} className='w-64 outline-none p-2 bg-transparent  border-b-2 border-black rounded mb-3  focus:border-b-2 focus:border-white/70 ' placeholder='name' onChange={handleChange} required />
+              <input type="text" name="from_name" id="from_name" value={form.from_name} className='w-64 outline-none p-2 bg-transparent  border-b-2 border-black rounded mb-3  focus:border-b-2 focus:border-white/70 ' placeholder='name' required onChange={handleChange}  />
               <br />
               <input type="email" name="email" id="email" value={form.email} className='w-64 outline-none p-2 bg-transparent  border-b-2 border-black rounded mb-3  focus:border-b-2 focus:border-white/70' placeholder='email' required onChange={handleChange} />
               <br />
