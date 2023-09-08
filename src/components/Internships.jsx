@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { internships } from "../data/Data"
 import { motion } from "framer-motion"
 import internshiplogo from '../images/internship.png'
 import certificate1 from '../images/certificate1.jpg'
@@ -39,7 +40,7 @@ function Internships() {
 
     const handleShowCertificate = (str) => {
 
-        if (str === 'bharat') {
+        if (str === 'Bharat Intern') {
             setCertificate(true)
             setShowCertificate('bharat')
         } else {
@@ -55,24 +56,27 @@ function Internships() {
     }
     return (
         <>
-            <motion.div className="m-5 mt-20 md:m-20" id="internship" variants={internshipsVar} initial='initial' whileInView='whileInView'>
+            <motion.div className="m-5 mt-20 sm:px-5 md:m-20" id="internship" variants={internshipsVar} initial='initial' whileInView='whileInView'>
                 <div className='flex items-center mb-5 '>
                     <img src={internshiplogo} alt="education" width="50px" className='' />
                     <span className=' text-3xl m-3'>|</span>
                     <h1 className='text-xl font-bold sm:text-2xl md:text-3xl  '>INTERNSHIPS</h1>
                 </div>
 
-                <div className="m-3 p-5 ">
-                    <div className="mb-5 ">
-                        <h1 className="text-xl font-bold md:text-2xl lg:text-3xl">Bharat Intern</h1>
-                        <h1 className="text-lg font-semibold ">July 2023 - August 2023</h1>
-                        <button className="text-gray-900 hover:underline" onClick={() => handleShowCertificate('bharat')}>See Certificate</button>
-                    </div>
-                    <div>
-                        <h1 className="text-xl font-bold md:text-2xl lg:text-3xl">Oasis Infobyte</h1>
-                        <h1 className="text-lg font-semibold ">July 2023 - August 2023</h1>
-                        <button className="text-gray-900 hover:underline" onClick={() => handleShowCertificate('oasis')}>See Certificate</button>
-                    </div>
+                <div className='mb-3 px-3 py-5'>
+                    {
+                        internships.map((internship,index) => {
+                            return (
+                                <div key={index} className="mb-5">
+                                    <p className="mb-2 font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl">{internship.internName}</p>
+                                    <p className=' sm:text-xl md:text-2xl lg:text=3xl'>{internship.date}</p>
+                                    <button className="text-gray-900 hover:underline" onClick={()=>handleShowCertificate(internship.internName)} >See Certificate</button>
+                                </div>
+                            )
+                        })
+                    }
+
+
                 </div>
 
                 {

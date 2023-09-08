@@ -40,6 +40,17 @@ export const degree=[
     }
 ]
 
+export const internships=[
+    {
+        internName:'Bharat Intern',
+        date:'July 2023 - August 2023'
+    },
+    {
+        internName:'Oasis Infobyte',
+        date:'July 2023 - August 2023'
+    },
+]
+
 export const projects=[
     {
         projectImg:project1Img,

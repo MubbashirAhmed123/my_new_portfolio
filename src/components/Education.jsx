@@ -16,14 +16,14 @@ function Education() {
     }
     return (
         <>
-            <motion.div id='education' className='m-5 mt-20 md:m-20' variants={educationVar} initial='initial' whileInView='whileInView'>
+            <motion.div id='education' className='m-5 mt-24 sm:px-5 md:m-20' variants={educationVar} initial='initial' whileInView='whileInView'>
                 <div className='flex items-center mb-5 '>
                     <img src={educationlogo} alt="education" width="50px" className='' />
                     <span className=' text-3xl m-3'>|</span>
                     <h1 className='text-xl font-bold sm:text-2xl md:text-3xl  '>EDUCATION</h1>
                 </div>
 
-                <div className='mb-3 px-10 py-5'>
+                <div className='mb-3 px-3 py-5'>
                     {
                         degree.map((degree,index) => {
                             return (

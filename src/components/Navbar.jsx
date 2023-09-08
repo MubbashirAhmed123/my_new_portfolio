@@ -10,8 +10,11 @@ function Navbar() {
     setNav(!nav)
   }
 
-  const navVar = {
-    initial: { y: -'100vh', opacity: 0 }, animate: { y: 0, opacity: 1,
+
+
+  const mobileNavVar = {
+    initial: { y: -'100vh', opacity: 0 }, 
+    animate: { y: 0, opacity: 1,
     transition: { duration: 1, type: 'spring' },
     },
     exit: {
@@ -29,7 +32,8 @@ function Navbar() {
   return (
     <>
       <div className='sticky z-10 w top-0 '>
-        <div className='h-16 p-5 flex justify-between items-center bg-gradient-to-tr from-teal-600'>
+        <div className='h-16 p-5 flex justify-between items-center bg-gradient-to-tr from-teal-600 sm:justify-around' >
+
           <motion.div variants={nameVar} initial='initial' animate='animate' >
             <h1 className="font-bold  sm:text-lg md:text-xl">Mubbashir</h1>
           </motion.div>
@@ -39,19 +43,19 @@ function Navbar() {
             }
           </motion.div>
           <ul className="hidden sm:flex  space-x-9 mx-5 ">
-            <Link smooth to='#about' >About</Link>
-            <Link smooth to='#about'>Skills</Link>
-            <Link smooth to='#education'>Education</Link>
-            <Link smooth to='#internship'>Internships</Link>
-            <Link smooth to='#projects'>Projects</Link>
-            <Link smooth to='#contact' >Contact</Link>
+            <Link smooth to='#about' className="text-gray-900 font-bold hover:scale-110 hover:text-gray-800 transition-all focus:font-extrabold focus:text-black" >About</Link>
+            {/* <Link smooth to='#about' className="text-gray-900 font-bold hover:scale-110 hover:text-gray-800 transition-all focus:font-extrabold focus:text-black">Skills</Link> */}
+            <Link smooth to='#education' className="text-gray-900 font-bold hover:scale-110 hover:text-gray-800 transition-all focus:font-extrabold focus:text-black">Education</Link>
+            <Link smooth to='#internship' className="text-gray-900 font-bold hover:scale-110 hover:text-gray-800 transition-all focus:font-extrabold focus:text-black">Internships</Link>
+            <Link smooth to='#projects' className="text-gray-900 font-bold hover:scale-110 hover:text-gray-800 transition-all focus:font-extrabold focus:text-black">Projects</Link>
+            <Link smooth to='#contact'  className="text-gray-900 font-bold hover:scale-110 hover:text-gray-800 transition-all focus:font-extrabold focus:text-black">Contact</Link>
           </ul>
         </div>
         <nav className='mobileNav sm:hidden' >
           <AnimatePresence>
             {
               nav && (
-                <motion.ul className='fixed z-10 w-screen bg-teal-600/90'  variants={navVar} initial='initial' animate='animate'
+                <motion.ul className='fixed z-10 w-screen bg-teal-600/90'  variants={mobileNavVar} initial='initial' animate='animate'
                 exit='exit'>
 
                   <motion.li className="p-5 text-lg font-bold hover:scale-105 hover:text-gray-800  transition-all">
@@ -59,9 +63,9 @@ function Navbar() {
                   </motion.li>
                   <hr />
 
-                  <li className="p-5 text-lg font-bold hover:scale-105 hover:text-gray-800  transition-all "><Link smooth to='#about'  >Skills</Link>
+                  {/* <li className="p-5 text-lg font-bold hover:scale-105 hover:text-gray-800  transition-all "><Link smooth to='#about'  >Skills</Link>
                   </li>
-                  <hr />
+                  <hr /> */}
 
                   <li className="p-5 text-lg font-bold hover:scale-105 hover:text-gray-800  transition-all "><Link smooth to='#education'  >Education</Link>
                   </li>
